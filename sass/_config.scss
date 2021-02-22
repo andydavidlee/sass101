@@ -1,0 +1,21 @@
+// variables
+// Having the variables in a different file will make them easier to find when we want to change the theme.
+$light-color: #f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #0e6cff;
+// $primary-color: #e0ffff;
+$secondary-color: #ff8700;
+
+// create a function to check the lightness and set the text color
+@function set-text-colour($color) {
+    @if(lightness($color) > 70) { // condition for light
+        @return #333; // if the colour is light, use a dark text colour
+    } @else {
+        @return #fff; // if the colour is dark, use a light text colour
+    }
+}
+
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-colour($color);
+}

@@ -1,0 +1,26 @@
+// this is our buttons style.
+
+// class that will share styles with other classes
+
+%btn {
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 3px;
+// &:hover is equal to btn:hover
+    &:hover {
+        transform: scale(.98);
+    }
+}
+
+.btn-primary {
+    @extend %btn;
+    // lighten function taks a colour and a percentage to lighten
+    // here we are lightening our buttons colour by 10%
+    @include set-background(lighten($primary-color, 10%));
+}
+
+.btn-secondary {
+    @extend %btn;
+    @include set-background($secondary-color);
+}
